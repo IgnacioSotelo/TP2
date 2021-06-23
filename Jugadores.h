@@ -20,6 +20,10 @@ public:
 	Jugador* getJugadorActual();
 
 	void pasarJugador();
+
+	int getCantidadJugadores();
+
+	int getIdJugadorSiguiente();
 };
 
 
