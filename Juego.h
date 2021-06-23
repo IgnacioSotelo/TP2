@@ -24,9 +24,9 @@ public:
 
 	/*
 	 * PRE : La fila y columna debe existir
-	 * POST: Coloca una ficha en el tablero
+	 * POST: Coloca una ficha en el tablero, devuelve false si la columna esta completa
 	 */
-	void colocarFicha(std::string ficha, int columna, int profundidad);
+	bool colocarFicha(std::string ficha, int columna, int profundidad);
 
 	/*
 	 * PRE : -
@@ -48,6 +48,15 @@ public:
 
 	void pasarJugador();
 
+	Tablero* getTablero();
+
+	int pedirCarta();
+
+	void seleccionarColumna(int columna, int cartaSeleccionada);
+
+	int getCantidadJugadores();
+
+	int getIdJugadorSiguiente();
 };
 
 #endif /* JUEGO_H_ */
