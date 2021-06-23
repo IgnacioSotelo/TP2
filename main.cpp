@@ -4,30 +4,45 @@ using namespace std;
 
 int main() {
 	Juego juego(5,5,1);
+	string ficha;
 	int input = -1;
-	int contador = 1;
+	cout << "Ingresar fichas (caracteres) para cada jugador" << endl << "[0 para terminar]" << endl;
 
-	while(input != 0) {
-		string ficha;
-		cout << "Ingresar ficha para jugador " << contador++ << ": ";
+	while(ficha != "0") {
+		cout << "Ingresar ficha para jugador " << juego.getCantidadJugadores() + 1 << ": ";
 		cin >> ficha;
-		juego.agregarJugador(ficha);
-		cout << "Agregar otro jugador? 1: si  -  0: no ";
-		cin >> input;
+
+		if(ficha != "0") {
+			juego.agregarJugador(ficha);
+		}
 	}
 
-	input = -1;
-
 	while(input != 0) {
-		cout << "--------------------------------------------------------" << endl;
-		cout << "Turno de jugador: " << juego.getJugadorActual()->getNumero() << ", ficha " << juego.getJugadorActual()->getFicha()<< endl;
+		int cartaSeleccionada = -1;
 
-		cout << "Ingresar columna: ";
+		cartaSeleccionada = juego.pedirCarta();
+
+		cout << "  Ingresar columna > ";
 		cin >> input;
 
-		juego.colocarFicha(juego.getJugadorActual()->getFicha(), input, 1);
+		juego.seleccionarColumna(input, cartaSeleccionada);
+
+		if(cartaSeleccionada == 1) {
+			cout << "El jugador " << juego.getIdJugadorSiguiente() << " pierde un turno" << endl;
+			juego.pasarJugador();
+		}
+
+		if(cartaSeleccionada == 2) {
+			juego.mostrarTablero();
+			cout << "Jugador " << juego.getJugadorActual()->getNumero() << " juega nuevamente: " << endl;
+			cout << "  Ingresar columna > ";
+			cin >> input;
+
+			juego.seleccionarColumna(input, cartaSeleccionada);
+			juego.pasarJugador();
+		}
+
 		juego.mostrarTablero();
-		juego.pasarJugador();
 	}
 
 	return 0;
