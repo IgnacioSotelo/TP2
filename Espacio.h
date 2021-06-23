@@ -7,6 +7,7 @@ class Espacio {
 private:
 	Lista<Plano*>* planos;
 public:
+
 	/*
 	 * PRE : -
 	 * POST: Crea un nuevo espacio.
@@ -38,7 +39,7 @@ public:
 	 */
 	int getDimensionColumna();
 
-	/* 
+	/*
 	 * PRE : -
 	 * POST: Devuelve un plano a partir de una posicion
 	 */
@@ -48,13 +49,13 @@ public:
 	 * PRE : Introducir una coordenada valida
 	 * POST: Devuelve una celda en una coordenada dada (x,y,z)
 	 */
-	int getCelda( int x,  int y, int z);
+	std::string getCelda( int x,  int y, int z);
 
 	/*
 	 * PRE : La celda debe existir
 	 * POST: Cambia el valor de una celda dando sus coordenadas (x,y,z)
 	 */
-	void setCelda(int dato, int x, int y, int z);
+	void setCelda(std::string dato, int x, int y, int z);
 
 	/* NOTA: Para pruebas nada mas, tratar de que la impresion sea desde otro objeto..
 	 * PRE : -
