@@ -1,10 +1,3 @@
-/*
- * Tablero.h
- *
- *  Created on: 22 jun. 2021
- *      Author: ignacio
- */
-
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
@@ -19,22 +12,58 @@ private:
 	Espacio *espacio;
 public:
 
+	/*
+	 * PRE : -
+	 * POST: Inicia un tablero nuevo indicando cantidad de filas, columna y profundidad.
+	 */
 	Tablero(int numeroDeFilas, int numeroDeColumnas, int numeroDeProfundidad);
 
+	/*
+	 * PRE : -
+	 * POST: Destructor
+	 */
 	~Tablero();
 
+	/*
+	 * PRE : -
+	 * POST: Devuelve el numero de filas
+	 */
 	int getNumeroDeFilas();
 
+	/*
+	 * PRE : -
+	 * POST: Devuelve el numero de columnas
+	 */
 	int getNumeroDeColumnas();
 
+	/*
+	 * PRE : -
+	 * POST: Devuelve la profundidad del tablero
+	 */
 	int getNumeroDeProfundidad();
 
+	/*
+	 * PRE : La celda debe existir
+	 * POST: Cambia el valor de una celda existente
+	 */
 	void setCelda(int dato, int x, int y, int z);
 
+	/*
+	 * PRE : La celda debe existir
+	 * POST: Devuelve el valor de un celda dando sus coordenadas
+	 */
 	int getCelda(int x, int y, int z);
 
+	/*
+	 * PRE : -
+	 * POST: Inicia el tablero creandolo y rellenandolo con ceros
+	 */
 	void iniciarTablero();
 
+	/* NOTA: Solo para pruebas
+	 * PRE : -
+	 * POST: Imprime en pantalla el trablero
+	 */
 	void mostrarTablero();
 };
 
