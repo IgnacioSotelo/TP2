@@ -22,3 +22,11 @@ Jugador* Jugadores::getJugadorActual() {
 void Jugadores::pasarJugador() {
 	idJugadorActual >= cantidadJugadores ? idJugadorActual = 1:idJugadorActual ++;
 }
+
+int Jugadores::getCantidadJugadores() {
+	return jugadores->contarElementos();
+}
+
+int Jugadores::getIdJugadorSiguiente() {
+	return idJugadorActual >= cantidadJugadores ? 2 : idJugadorActual;
+}
