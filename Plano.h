@@ -51,13 +51,13 @@ public:
 	 * PRE : -
 	 * POST: Devuelve el valor de una celda dentro del plano
 	 */
-	int getCelda( int x,  int y);
+	std::string getCelda( int x,  int y);
 
 	/*
 	 * PRE : La celda debe existir
 	 * POST: Cambia el valor de una celda en particular
 	 */
-	void setCelda( int dato, int x,  int y);
+	void setCelda( std::string dato, int x,  int y);
 
 	/* Para pruebas, buscar otra alternativa quizas sea mejor..
 	 * PRE : -
