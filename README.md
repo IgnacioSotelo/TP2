@@ -8,3 +8,4 @@
   - Supongo que dentro de la misma clase Juego 
   - Quizas la misma implementacion del TP1 y extenderla a 3 dimensiones 
 - Exportar bmp con EasyBMP 
+- Menu
