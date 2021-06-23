@@ -1,21 +1,20 @@
-/*
- * main.cpp
- *
- *  Created on: 22 jun. 2021
- *      Author: ignacio
- */
 #include <iostream>
-#include "Tablero.h"
+#include "Juego.h"
 using namespace std;
 
-int main() {
-	Tablero t(4, 4, 2);
 
-	t.iniciarTablero();
-	t.mostrarTablero();
+int main() {
+	Juego juego(4,4,2);
+	int input = -1;
+
+	while(input != 0) {
+		cout << "Ingresar columna: ";
+		cin >> input;
+		cout << endl;
+
+		juego.colocarFicha(1, input, 1);
+		juego.mostrarTablero();
+	}
 
 	return 0;
 }
-
-
-
