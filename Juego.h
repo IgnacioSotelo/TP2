@@ -2,10 +2,12 @@
 #define JUEGO_H_
 
 #include "Tablero.h"
+#include "Jugadores.h"
 
 class Juego {
 private:
 	Tablero *tablero;
+	Jugadores *jugadores;
 public:
 
 	/*
@@ -24,13 +26,27 @@ public:
 	 * PRE : La fila y columna debe existir
 	 * POST: Coloca una ficha en el tablero
 	 */
-	void colocarFicha(int ficha, int columna, int profundidad);
+	void colocarFicha(std::string ficha, int columna, int profundidad);
 
 	/*
 	 * PRE : -
 	 * POST: Muestra el tablero en pantalla
 	 */
 	void mostrarTablero();
+
+	/*
+	 * PRE : -
+	 * POST: Agrega un jugador a la lista de jugadores
+	 */
+	void agregarJugador(std::string ficha);
+
+	/*
+	 * PRE : -
+	 * POST: Devuelve el jugador en curso
+	 */
+	Jugador* getJugadorActual();
+
+	void pasarJugador();
 
 };
 
