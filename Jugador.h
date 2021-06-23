@@ -7,7 +7,7 @@ class Jugador {
 private:
 	int id;
 	std::string ficha;
-	bool cartaBloquearTurno; // = t (t : disponible, f: usada)
+	bool cartaBloquearTurno; // = t (t : usada, f: disponible)
 	bool cartaJuegaDoble;    // "  "
 	bool cartaDobleFicha;
 	int fichasRestantes;
@@ -21,6 +21,26 @@ public:
 	int getNumero();
 
 	std::string getFicha();
+
+	int getCartasRestantes();
+
+	int getFichasRestantes();
+
+	bool getCartaBloquearTurno();
+
+	bool getCartaJuegaDoble();
+
+	bool getCartaDobleFicha();
+
+	void usarCartaBloquearTurno();
+
+	void usarCartaJuegaDoble();
+
+	void usarCartaDobleFicha();
+
+	void restarCarta();
+
+
 };
 
 
