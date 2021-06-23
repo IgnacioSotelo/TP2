@@ -46,20 +46,20 @@ public:
 	 * PRE : La celda debe existir
 	 * POST: Cambia el valor de una celda existente
 	 */
-	void setCelda(int dato, int x, int y, int z);
+	void setCelda(std::string dato, int x, int y, int z);
 
 	/*
 	 * PRE : La celda debe existir
 	 * POST: Devuelve el valor de un celda dando sus coordenadas
 	 */
-	int getCelda(int x, int y, int z);
+	std::string getCelda(int x, int y, int z);
 
 	/*
 	 * PRE : Las columnas deben tener todas la misma dimension
 	 * POST: Devuelve la cantidad de elementos que tienen las columnas
 	 */
 	int getDimensionColumna();
-	
+
 	/*
 	 * PRE : -
 	 * POST: Inicia el tablero creandolo y rellenandolo con ceros
