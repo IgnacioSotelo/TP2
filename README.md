@@ -1,5 +1,6 @@
 # TP2
-###Falta:
+
+### Falta:
 - Controlar que los valores ingresados esten dentro de los rangos
 - Agregar alguna implementación de clase Jugador o algo por el estilo 
 - El tema de las cartas 
