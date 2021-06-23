@@ -1,10 +1,3 @@
-/*
- * Tablero.cpp
- *
- *  Created on: 22 jun. 2021
- *      Author: ignacio
- */
-
 #include "Tablero.h"
 
 Tablero::Tablero(int numeroDeFilas, int numeroDeColumnas, int numeroDeProfundidad) {
@@ -30,11 +23,11 @@ int Tablero::getNumeroDeProfundidad() {
 	return numeroDeProfundidad;
 }
 
-void Tablero::setCelda(int dato, int x, int y, int z) {
+void Tablero::setCelda(std::string dato, int x, int y, int z) {
 	espacio->setCelda(dato, x, y, z);
 }
 
-int Tablero::getCelda(int x, int y, int z) {
+std::string Tablero::getCelda(int x, int y, int z) {
 	return espacio->getCelda(x, y, z);
 }
 
@@ -48,7 +41,7 @@ void Tablero::iniciarTablero() {
 		for(int j = 1; j <= numeroDeColumnas; j++) {
 			Columna* caux = new Columna;
 			for(int k = 1; k <= numeroDeFilas; k++) {
-				caux->agregarCelda(0);
+				caux->agregarCelda(".");
 			}
 			paux->agregarColumna(caux);
 		}
