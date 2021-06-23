@@ -38,6 +38,10 @@ int Tablero::getCelda(int x, int y, int z) {
 	return espacio->getCelda(x, y, z);
 }
 
+int Tablero::getDimensionColumna() {
+	return espacio->getDimensionColumna();
+}
+
 void Tablero::iniciarTablero() {
 	for(int i = 1; i <= numeroDeProfundidad; i++) {
 		Plano* paux = new Plano;
