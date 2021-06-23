@@ -2,9 +2,9 @@
 #include "Juego.h"
 using namespace std;
 
-
 int main() {
-	Juego juego(4,4,2);
+//	Con profundidad = 1 es una tabla 2d
+	Juego juego(4,4,1);
 	int input = -1;
 
 	while(input != 0) {
