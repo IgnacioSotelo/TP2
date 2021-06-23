@@ -55,6 +55,12 @@ public:
 	int getCelda(int x, int y, int z);
 
 	/*
+	 * PRE : Las columnas deben tener todas la misma dimension
+	 * POST: Devuelve la cantidad de elementos que tienen las columnas
+	 */
+	int getDimensionColumna();
+	
+	/*
 	 * PRE : -
 	 * POST: Inicia el tablero creandolo y rellenandolo con ceros
 	 */
