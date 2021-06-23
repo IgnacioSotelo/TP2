@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	Juego juego(5,5,1);
+	Juego juego(5,5,3);
 	string ficha;
 	int input = -1;
 	cout << "Ingresar fichas (caracteres) para cada jugador" << endl << "[0 para terminar]" << endl;
