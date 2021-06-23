@@ -52,9 +52,15 @@ void Juego::seleccionarColumna(int columna, int cartaSeleccionada) {
 	if(columna > 0 && columna <= tablero->getDimensionColumna()) {
 
 		if(this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, 1)) {
+
+			if(cartaSeleccionada == 3) {
+				this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, 1);
+			}
+
 			if(cartaSeleccionada != 2) {
 				jugadores->pasarJugador();
 			}
+
 		} else {
 			std::cout << "Columna completa, selecciona otra" << std::endl;
 		}
