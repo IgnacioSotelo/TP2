@@ -41,7 +41,9 @@ void Plano::setCelda( int dato, int x,  int y) {
 void Plano::imprimirPlano() {
 	for(int i = 1; i <= columnas->obtener(1)->getTamanio(); i++) {
 		for( int j = 1; j <= columnas->contarElementos(); j++) {
-			std::cout << columnas->obtener(j)->getCelda(i) << " ";
+			if(columnas->obtener(j)->getCelda(i) == 0) std::cout << " . ";
+			if(columnas->obtener(j)->getCelda(i) == 1) std::cout << " X ";
+			if(columnas->obtener(j)->getCelda(i) == 2) std::cout << " O ";
 		}
 		std::cout << std::endl;
 	}
