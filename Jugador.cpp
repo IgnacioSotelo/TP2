@@ -54,4 +54,3 @@ void Jugador::usarCartaDobleFicha() {
 void Jugador::restarCarta() {
 	cartasRestantes--;
 }
-
