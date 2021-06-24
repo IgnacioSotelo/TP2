@@ -2,10 +2,12 @@
 
 int Jugador::numero = 1;
 
-Juego::Juego(int filas, int columnas, int profundidad) {
+Juego::Juego(int filas, int columnas, int profundidad, int fichasPorCoincidir) {
 	tablero = new Tablero(filas, columnas, profundidad);
 	tablero->iniciarTablero();
 	jugadores = new Jugadores;
+	this->fichasPorCoincidir = fichasPorCoincidir;
+	finDeJuego = false;
 }
 
 Juego::~Juego() {
@@ -25,6 +27,17 @@ bool Juego::colocarFicha(std::string ficha, int columna, int profundidad) {
 	}
 
 	tablero->setCelda(ficha, columna, finDeColumna, profundidad);
+
+	if(this->buscarGanadorX(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<" **** Gano el Jugador ****" << jugadores->getJugadorActual()->getNumero() << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorY(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<" **** Gano el Jugador ****" << jugadores->getJugadorActual()->getNumero() << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
 	return true;
 }
 
@@ -145,4 +158,64 @@ int Juego::getCantidadJugadores() {
 
 int Juego::getIdJugadorSiguiente() {
 	return jugadores->getIdJugadorSiguiente();
+}
+
+bool Juego::buscarGanadorX(int x, int y, int z, std::string ficha) {
+	int dimension = tablero->getNumeroDeColumnas();
+	bool conexion = false;
+	int contador = 0;
+
+	for(int i = 1; i <= dimension; i++) {
+		if(conexion) {
+			if(tablero->getCelda(i, y, z) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(i, y, z) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorY(int x, int y, int z, std::string ficha) {
+	int dimension = tablero->getNumeroDeColumnas();
+	bool conexion = false;
+	int contador = 0;
+
+	for(int i = 1; i <= dimension; i++) {
+		if(conexion) {
+			if(tablero->getCelda(x, i, z) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(x, i, z) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Juego::juegoFinalizado() {
+	return finDeJuego;
 }
