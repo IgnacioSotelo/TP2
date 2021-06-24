@@ -8,13 +8,15 @@ class Juego {
 private:
 	Tablero *tablero;
 	Jugadores *jugadores;
+	int fichasPorCoincidir;
+	bool finDeJuego;
 public:
 
 	/*
 	 * PRE : -
 	 * POST: Inicia un nuevo juego
 	 */
-	Juego(int filas, int columnas, int profundidad);
+	Juego(int filas, int columnas, int profundidad, int fichasPorCoincidir);
 
 	/*
 	 * PRE : -
@@ -57,6 +59,12 @@ public:
 	int getCantidadJugadores();
 
 	int getIdJugadorSiguiente();
+
+	bool buscarGanadorX(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorY(int x, int y, int z, std::string ficha);
+
+	bool juegoFinalizado();
 };
 
 #endif /* JUEGO_H_ */
