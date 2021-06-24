@@ -29,12 +29,57 @@ bool Juego::colocarFicha(std::string ficha, int columna, int profundidad) {
 	tablero->setCelda(ficha, columna, finDeColumna, profundidad);
 
 	if(this->buscarGanadorX(columna, finDeColumna, profundidad, ficha)) {
-		std::cout << std::endl <<" **** Gano el Jugador ****" << jugadores->getJugadorActual()->getNumero() << std::endl << std::endl;
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
 		finDeJuego = true;
 	}
 
 	if(this->buscarGanadorY(columna, finDeColumna, profundidad, ficha)) {
-		std::cout << std::endl <<" **** Gano el Jugador ****" << jugadores->getJugadorActual()->getNumero() << std::endl << std::endl;
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorZ(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalA(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalB(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalC(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalD(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalE(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalF(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalG(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
+		finDeJuego = true;
+	}
+
+	if(this->buscarGanadorDiagonalH(columna, finDeColumna, profundidad, ficha)) {
+		std::cout << std::endl <<"            **** Gano el Jugador " << jugadores->getJugadorActual()->getNumero() << " ****" << std::endl << std::endl;
 		finDeJuego = true;
 	}
 
@@ -61,13 +106,13 @@ Tablero* Juego::getTablero() {
 	return tablero;
 }
 
-void Juego::seleccionarColumna(int columna, int cartaSeleccionada) {
+void Juego::seleccionarColumna(int columna, int profundidad, int cartaSeleccionada) {
 	if(columna > 0 && columna <= tablero->getDimensionColumna()) {
 
-		if(this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, 1)) {
+		if(this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, profundidad)) {
 
 			if(cartaSeleccionada == 3) {
-				this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, 1);
+				this->colocarFicha(jugadores->getJugadorActual()->getFicha(), columna, profundidad);
 			}
 
 			if(cartaSeleccionada != 2) {
@@ -86,7 +131,7 @@ int Juego::pedirCarta() {
 	int cartaSeleccionada = -1;
 	bool usarCarta = false;
 
-	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "________________________________________________" << std::endl << std::endl;
 	std::cout << "Turno de jugador: " << jugadores->getJugadorActual()->getNumero() << ", ficha " << jugadores->getJugadorActual()->getFicha()<< std::endl;
 	std::cout << "Cartas restantes: " << jugadores->getJugadorActual()->getCartasRestantes() << std::endl;
 
@@ -108,7 +153,7 @@ int Juego::pedirCarta() {
 			}
 			std::cout << std::endl << "   0) [No usar carta]";
 
-			std::cout << std::endl << "  Ingresar carta   > ";
+			std::cout << std::endl << "  Ingresar carta       > ";
 
 			std::cin >> cartaSeleccionada;
 
@@ -189,7 +234,7 @@ bool Juego::buscarGanadorX(int x, int y, int z, std::string ficha) {
 }
 
 bool Juego::buscarGanadorY(int x, int y, int z, std::string ficha) {
-	int dimension = tablero->getNumeroDeColumnas();
+	int dimension = tablero->getNumeroDeFilas();
 	bool conexion = false;
 	int contador = 0;
 
@@ -211,6 +256,410 @@ bool Juego::buscarGanadorY(int x, int y, int z, std::string ficha) {
 		if(contador >= fichasPorCoincidir) {
 			return true;
 		}
+	}
+
+	return false;
+}
+bool Juego::buscarGanadorZ(int x, int y, int z, std::string ficha) {
+	int dimension = tablero->getNumeroDeProfundidad();
+	bool conexion = false;
+	int contador = 0;
+
+	for(int i = 1; i <= dimension; i++) {
+		if(conexion) {
+			if(tablero->getCelda(x, y, i) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(x, y, i) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalA(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA, zA;
+	int xB, yB, zB;
+
+	xA = x;
+	yA = y;
+	zA = z;
+
+	while(xA > 1 && yA < tablero->getNumeroDeFilas() && zA > 1) {
+		xA--;
+		yA++;
+		zA--;
+	}
+
+	xB = xA;
+	yB = yA;
+	zB = zA;
+
+	while(xB <= tablero->getNumeroDeColumnas() && yB >= 1 && zB <= tablero->getNumeroDeProfundidad()) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB++;
+		yB--;
+		zB++;
+	}
+
+	return false;
+}
+
+
+bool Juego::buscarGanadorDiagonalB(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA, zA;
+	int xB, yB, zB;
+
+	xA = x;
+	yA = y;
+	zA = z;
+
+	while(xA < tablero->getNumeroDeColumnas() && yA < tablero->getNumeroDeFilas() && zA < tablero->getNumeroDeProfundidad()) {
+		xA++;
+		yA++;
+		zA++;
+	}
+
+	xB = xA;
+	yB = yA;
+	zB = zA;
+
+	while(xB >= 1 && yB >= 1 && zB >= 1) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB--;
+		yB--;
+		zB--;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalC(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA, zA;
+	int xB, yB, zB;
+
+	xA = x;
+	yA = y;
+	zA = z;
+
+	while(xA < tablero->getNumeroDeColumnas() && yA > 1 && zA > 1) {
+		xA++;
+		yA--;
+		zA--;
+	}
+
+	xB = xA;
+	yB = yA;
+	zB = zA;
+
+	while(xB >= 1 && yB <= tablero->getNumeroDeFilas() && zB <= tablero->getNumeroDeProfundidad()) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB--;
+		yB++;
+		zB++;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalD(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA, zA;
+	int xB, yB, zB;
+
+	xA = x;
+	yA = y;
+	zA = z;
+
+	while(xA > 1 && yA > 1 && zA < tablero->getNumeroDeProfundidad()) {
+		xA--;
+		yA--;
+		zA++;
+	}
+
+	xB = xA;
+	yB = yA;
+	zB = zA;
+
+	while(xB <= tablero->getNumeroDeColumnas() && yB <= tablero->getNumeroDeFilas() && zB >= 1) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB++;
+		yB++;
+		zB--;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalE(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int yA, zA;
+	int yB, zB;
+
+	yA = y;
+	zA = z;
+
+	while(yA > 1 && zA < tablero->getNumeroDeProfundidad()) {
+		yA--;
+		zA++;
+	}
+
+	yB = yA;
+	zB = zA;
+
+	while(yB <= tablero->getNumeroDeFilas() && zB >= 1) {
+
+		if(conexion) {
+			if(tablero->getCelda(x, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(x, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		yB++;
+		zB--;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalF(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int yA, zA;
+	int yB, zB;
+
+	yA = y;
+	zA = z;
+
+	while(yA < tablero->getNumeroDeFilas() && zA < tablero->getNumeroDeProfundidad()) {
+		yA++;
+		zA++;
+	}
+
+	yB = yA;
+	zB = zA;
+
+	while(yB >= 1 && zB >= 1) {
+
+		if(conexion) {
+			if(tablero->getCelda(x, yB, zB) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(x, yB, zB) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		yB--;
+		zB--;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalG(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA;
+	int xB, yB;
+
+	xA = x;
+	yA = y;
+
+	while(xA < tablero->getNumeroDeColumnas() && yA > 1) {
+		xA++;
+		yA--;
+	}
+
+	xB = xA;
+	yB = yA;
+
+	while(xB >= 1 && yB <= tablero->getNumeroDeFilas()) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, z) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, z) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB--;
+		yB++;
+	}
+
+	return false;
+}
+
+bool Juego::buscarGanadorDiagonalH(int x, int y, int z, std::string ficha) {
+	bool conexion = false;
+	int contador = 0;
+
+	int xA, yA;
+	int xB, yB;
+
+	xA = x;
+	yA = y;
+
+	while(xA < tablero->getNumeroDeColumnas() && yA < tablero->getNumeroDeFilas()) {
+		xA++;
+		yA++;
+	}
+
+	xB = xA;
+	yB = yA;
+
+	while(xB >= 1 && yB >= 1) {
+
+		if(conexion) {
+			if(tablero->getCelda(xB, yB, z) == ficha) {
+				contador++;
+			} else {
+				conexion = false;
+				contador = 0;
+			}
+		} else {
+			if(tablero->getCelda(xB, yB, z) == ficha) {
+				conexion = true;
+				contador++;
+			}
+		}
+
+		if(contador >= fichasPorCoincidir) {
+			return true;
+		}
+
+		xB--;
+		yB--;
 	}
 
 	return false;

@@ -54,7 +54,7 @@ public:
 
 	int pedirCarta();
 
-	void seleccionarColumna(int columna, int cartaSeleccionada);
+	void seleccionarColumna(int columna, int profundidad, int cartaSeleccionada);
 
 	int getCantidadJugadores();
 
@@ -63,6 +63,24 @@ public:
 	bool buscarGanadorX(int x, int y, int z, std::string ficha);
 
 	bool buscarGanadorY(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorZ(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalA(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalB(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalC(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalD(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalE(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalF(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalG(int x, int y, int z, std::string ficha);
+
+	bool buscarGanadorDiagonalH(int x, int y, int z, std::string ficha);
 
 	bool juegoFinalizado();
 };
