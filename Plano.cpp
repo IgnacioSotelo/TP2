@@ -34,6 +34,7 @@ void Plano::setCelda( std::string dato, int x,  int y) {
 
 void Plano::imprimirPlano() {
 	for(int i = 1; i <= columnas->obtener(1)->getTamanio(); i++) {
+		std::cout << "      ";
 		for( int j = 1; j <= columnas->contarElementos(); j++) {
 			std::cout << " " << columnas->obtener(j)->getCelda(i) << " ";
 		}

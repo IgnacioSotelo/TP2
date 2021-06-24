@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-	Juego juego(5,5,3);
+	Juego juego(5,5,3,3);
 	string ficha;
 	int input = -1;
 	cout << "Ingresar fichas (caracteres) para cada jugador" << endl << "[0 para terminar]" << endl;
@@ -17,7 +17,7 @@ int main() {
 		}
 	}
 
-	while(input != 0) {
+	while(input != 0 && !juego.juegoFinalizado()) {
 		int cartaSeleccionada = -1;
 
 		cartaSeleccionada = juego.pedirCarta();
