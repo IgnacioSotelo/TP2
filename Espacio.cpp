@@ -1,6 +1,5 @@
 #include "Espacio.h"
 
-
 Espacio::Espacio() {
 	planos = new Lista<Plano*>;
 }
@@ -35,10 +34,9 @@ void Espacio::setCelda(std::string dato, int x, int y, int z) {
 
 void Espacio::imprimirEspacio() {
 	for(int i = planos->contarElementos(); i > 0; i--) {
-		std::cout << "Z = " << i << ": " << std::endl;
+		std::cout << std::endl;
+		std::cout << " Z = " << i << std::endl;
 		planos->obtener(i)->imprimirPlano();
 		std::cout << std::endl << std::endl;
 	}
 }
-
-
